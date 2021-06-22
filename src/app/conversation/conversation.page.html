@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-back-button  slot="start" (onclick)="back()"></ion-back-button>
+  <ion-title>
+      <div class="status">En ligne</div>
+    </ion-title>
+    <ion-avatar slot="start">
+      <img src="{{image}}"/>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-avatar>
+    <p slot="start">
+      <strong>{{ nom }}</strong>
+    </p>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div class="b" style="background-image: url('assets/bg.jpg');"></div>
+    
+
+    <div >
+
+      <ion-item lines="none" *ngFor="let message of messages">
+        
+        <ion-badge text-wrap slot="end" color="light" *ngIf=" message.uidSend == icComp "> {{ message.text }} <ion-note color="medium">{{message.heure}}</ion-note></ion-badge>
+      
+
+        <ion-badge text-wrap slot="start" color="warning" *ngIf=" message.uidSend !=icComp" > {{ message.text }} <ion-note color="medium">{{message.heure}}</ion-note></ion-badge>
+      
+      </ion-item>
+    </div>
+
+   
+  
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button >
+
+ <ion-col size="1" >
+      <ion-icon (click)="showEmojiPicker = !showEmojiPicker" color="secondary" name="happy" style="zoom:3;"></ion-icon>
+    </ion-col>
+      </ion-button>
+    </ion-buttons>
+
+   
+
+    <ion-textarea autoGrow="true" [(ngModel)]="messageText" placeholder="Votre message">
+
+      
+    </ion-textarea>
+    
+    <ion-buttons slot="end">
+      <ion-button (click)=" sendMessage( )">
+
+        <ion-icon name="paper-plane"></ion-icon>
+
+      </ion-button>
+
+    </ion-buttons>
+
+    <div class="emojiContainer" [style.height]="showEmojiPicker?'300px':'0px'"> 
+     
+      <emoji-picker (onEmojiSelect)="addEmoji($event)"></emoji-picker>
+
+     
+    </div>
+  </ion-toolbar>
+</ion-footer>

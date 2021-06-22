@@ -1,0 +1,67 @@
+
+
+
+
+
+
+
+
+<!-- <ion-list class="margin-bottom ion-no-padding">
+  <ion-item
+    *ngFor="let contact of contactsService.contacts"
+    class="ion-activatable"
+  >
+    <ion-avatar slot="start">
+      <img [src]="contact?.contactAvatar" />
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-avatar>
+    <ion-label class="ion-text-wrap">
+      <h2 class="text-height">
+        <strong>{{ contact?.contactName }}</strong>
+      </h2>
+      <p class="text-height">{{ contact?.time | date: "medium" }}</p>
+    </ion-label>
+    <ion-button slot="end" fill="clear">
+      <ion-icon slot="icon-only" color="secondary" name="call-sharp"></ion-icon>
+    </ion-button>
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-item>
+</ion-list> -->
+
+<!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="secondary">
+    <ion-icon color="light" name="call"></ion-icon>
+  </ion-fab-button>
+</ion-fab> -->
+
+
+
+<ion-content>
+<h1></h1>
+<ion-grid>
+ <h1>theme</h1>
+  <ion-row fixed>
+
+    <ion-col  size="12">  
+     
+  <ion-item>
+    <ion-label> {{ 'sap.theme'  }} </ion-label>
+    
+    <ion-toggle (ionChange)="themeChange($event)"> </ion-toggle>
+
+  </ion-item>
+    </ion-col>
+
+
+  </ion-row>
+
+</ion-grid>
+<h1>CHANGE LANGUAGE</h1>
+<ion-item >
+  <ion-select >
+    <ion-select-option [(ngModel)]="language" value="fr">FRANCAIS  </ion-select-option>
+    <ion-select-option value="en"> ANGLAIS  </ion-select-option>
+    </ion-select>
+</ion-item> 
+
+</ion-content>

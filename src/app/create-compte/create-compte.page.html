@@ -1,0 +1,77 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="logeMe()">Log in</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>Create your Account</h1>
+
+  <h5 class="card-title">choose a photo profil </h5>
+  
+  <ion-button >  
+  <input type="file" (change)="upload($event)"  id="file-input" />
+   </ion-button>
+ 
+
+    <form id="form" [formGroup]=" validationFormUser" (ngSubmit)="register( validationFormUser.value)">
+
+      <div class="form">
+
+        <ion-item>
+          <ion-input shape="round" formControlName="names" placeholder="names" type="text"></ion-input>
+        </ion-item>
+        <div class="">
+          <ng-container *ngFor="let validation of validationUserMessage.names">
+            <div class="error_message"
+              *ngIf="validationFormUser.get('names').hasError(validation.type) && (validationFormUser.get('names').dirty || validationFormUser.get('names').touched ) ">
+              {{ validation.message}}
+
+            </div>
+          </ng-container>
+        </div>
+        <br>
+
+        <br>
+        <ion-item>
+          <ion-input formControlName="email" placeholder="Email" type="text"></ion-input>
+        </ion-item>
+        <div class="">
+          <ng-container *ngFor="let validation of validationUserMessage.email">
+            <div class="error_message"
+              *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched ) ">
+              {{ validation.message}}
+
+            </div>
+          </ng-container>
+        </div>
+        <br>
+
+        <ion-item>
+          <ion-input formControlName="password" placeholder="passwword" type="password"></ion-input>
+        </ion-item>
+        <div class="">
+          <ng-container *ngFor="let validation of validationUserMessage.password">
+            <div class="error_message"
+              *ngIf="validationFormUser.get('password').hasError(validation.type) && (validationFormUser.get('password').dirty || validationFormUser.get('password').touched ) ">
+              {{ validation.message}}
+
+            </div>
+          </ng-container>
+        </div>
+
+      </div>
+
+      <br />
+      <ion-button class="submit-btn" shape="round" expand="block" fill="solid" type="submit"
+        [disabled]="!validationFormUser.value">
+        Enregistrer </ion-button>
+
+
+    </form>
+
+
+</ion-content>

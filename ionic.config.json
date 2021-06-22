@@ -1,0 +1,7 @@
+{
+  "name": "KMBSAP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

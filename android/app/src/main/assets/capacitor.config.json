@@ -1,0 +1,7 @@
+{
+	"appId": "KMB.az",
+	"appName": "KMBSAP",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+	"windowsAndroidStudioPath": "C:\\Program Files\\Android\\Android Studio1\\bin"
+}

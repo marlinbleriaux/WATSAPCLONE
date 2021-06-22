@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    
+    
+    <ion-buttons slot="end">
+      <ion-button expand="block" (click)="inscription()" >Sign up</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="background-image: url('assets/ui.jpg' ); " >
+  <div id="header">
+    <h1>Login</h1>
+    
+  </div>
+
+  <form id="form"   [formGroup]=" validationFormUser" (ngSubmit)="logeMeI( validationFormUser.value)" >
+    
+    <div class="form">  
+      <ion-item>
+          <ion-input formControlName="email" placeholder="Email" type="text"></ion-input>
+      </ion-item>
+      <div class="">
+       <ng-container *ngFor= "let validation of validationUserMessage.email">
+          <div  class="error_message" *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched ) " >
+            {{ validation.message}} 
+
+          </div>
+       </ng-container>
+      </div>
+      <br>
+
+      <ion-item>
+        <ion-input formControlName="password" placeholder="passwword" type="password"></ion-input>
+      </ion-item>
+      <div class="">
+        <ng-container *ngFor= "let validation of validationUserMessage.password">
+           <div  class="error_message" *ngIf="validationFormUser.get('password').hasError(validation.type) && (validationFormUser.get('password').dirty || validationFormUser.get('password').touched ) " >
+             {{ validation.message}} 
+
+           </div>
+        </ng-container>
+       </div>
+      
+     </div>  
+
+      <br />
+      <ion-button expand="block"  class="submit-btn" shape="round" fill="solid"  type="submit" [disabled]="!validationFormUser.value"> login </ion-button>
+       
+
+      <p (click)="forgetP()" color="warning" slot="end"> avez vous oublier votre mot de passe ? cliquez ici </p>
+    
+  </form>
+</ion-content>

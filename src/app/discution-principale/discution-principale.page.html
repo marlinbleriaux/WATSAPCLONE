@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-avatar slot="start">
+      
+    </ion-avatar>
+    
+    <ion-title>CONTACTS</ion-title>
+
+    
+      <ion-icon slot="end" name="search-outline" ></ion-icon>
+    
+  </ion-toolbar>
+  
+  
+</ion-header>
+
+<ion-content>
+    <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+
+  <ion-item lines="full">
+    <ion-button slot="start" size="small" fill="clear">
+      Listes de diffusion
+    </ion-button>
+    <ion-button slot="end" size="small" fill="clear">
+      Nouveau groupe
+    </ion-button>
+  </ion-item>
+
+
+  <ion-item
+  *ngFor="let user of TabUserDiscuss  " class="ion-activatable"(click)="GoToConv( user ) " >
+  <ion-avatar slot="start">
+    <img src={{user.image}}/>
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-avatar>
+  <ion-label class="ion-text-wrap">
+    <h2 class="text-height">
+      <strong>{{ user.nom }}</strong>
+    </h2>
+    <!-- <p class="text-height">{{user.email }}</p> -->
+  </ion-label>
+  <ion-ripple-effect></ion-ripple-effect>
+</ion-item>
+
+
+
+
+
+</ion-content>

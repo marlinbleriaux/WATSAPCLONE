@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  
+
+
+</ion-header>
+
+<ion-content >
+  <ion-item
+  *ngFor="let user of TabUserDiscuss  "  class="ion-activatable" (click)="GoToConv( user ) " detail routerLink="/conversation">
+  <ion-avatar slot="start">
+    <img src={{user.image}}/>
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-avatar>
+  <ion-label class="ion-text-wrap">
+    <h2 class="text-height">
+      <strong>{{ user.nom }}</strong>
+    </h2>
+    <!-- <p class="text-height">{{user.email }}</p> -->
+  </ion-label>
+  <ion-ripple-effect></ion-ripple-effect>
+</ion-item>
+
+
+  <!-- <ion-item   detail routerLink="/conversation"
+>
+  <ion-avatar slot="start" >
+    <img src="{{image}}"/>
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-avatar>
+
+  <ion-label class="ion-text-wrap">
+    <h2 class="text-height">
+      <strong>{{ nom })</strong>
+    </h2>
+    
+  </ion-label>
+  <ion-ripple-effect></ion-ripple-effect>
+</ion-item> -->
+
+
+  
+ 
+  <ion-fab vertical="bottom" horizontal="end" color="secondary" slot="fixed">
+    <ion-fab-button >
+      <ion-icon color="light" name="chatbox-ellipses"  (click)="discutP()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  </ion-content>
